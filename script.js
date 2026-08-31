@@ -180,30 +180,30 @@ function createHeroSlider() {
        dari seluruh portfolio siswa.
     */
 
-    const heroPhotos = [];
+   const heroPhotos = [];
 
-    students.forEach(student => {
+students.forEach(student => {
 
-        if (!student.photos) return;
+    if (!student.photos) return;
 
-        student.photos.forEach(photo => {
+    student.photos.forEach(photo => {
 
-            if (
-                photo.image_url &&
-                photo.image_url.trim() !== ""
-            ) {
+        if (
+            photo.image_url &&
+            photo.image_url.trim() !== "" &&
+            String(photo.featured).toUpperCase() === "YES"
+        ) {
 
-                heroPhotos.push({
-                    ...photo,
-                    studentName: student.name
-                });
+            heroPhotos.push({
+                ...photo,
+                studentName: student.name
+            });
 
-            }
-
-        });
+        }
 
     });
 
+});
 
     const selectedPhotos =
         heroPhotos.slice(0, 5);
